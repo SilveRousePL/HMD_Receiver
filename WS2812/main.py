@@ -4,6 +4,7 @@ import neopixel
 import board
 import sys
 import threading
+import scene_executor
 from scenes.PoliceLights import PoliceLights
 from scenes.WhiteLoading import WhiteLoading
 
@@ -11,6 +12,7 @@ class Lights:
     def __init__(self, pin, count):
         self.led_count = count
         self.pixels = neopixel.NeoPixel(pin, count, auto_write=False, pixel_order=neopixel.RGB)
+        self.scene_executor = scene_executor.SceneExecutor
 
     def __del__(self):
         self.scene.stop()
