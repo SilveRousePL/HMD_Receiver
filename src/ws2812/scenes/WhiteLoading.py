@@ -1,6 +1,5 @@
 import sys
-sys.path.append("..")
-from scene import Scene
+from ws2812.scene import Scene
 import time
 
 class WhiteLoading(Scene):
@@ -10,5 +9,5 @@ class WhiteLoading(Scene):
             sub = 255 - iteration
         else:
             sub = iteration
-        self.neopixel.fill((sub, sub, sub))
-        time.sleep(0.01)
+        result = [(sub, sub, sub)] * led_count
+        return result
